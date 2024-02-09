@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Invitation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffcccc; /* Light red */
+      color: #800000; /* Dark red */
+    }
+    #main-content {
+      margin-top: 50px;
+    }
+    button, p {
+      font-size: 20px;
+      background-color: #ff6666; /* Red */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #cc0000; /* Dark red */
+    }
+    #yes-button, #no-button {
+      display: none;
+    }
+    #continue-button, #love-letter-button {
+      display: none;
+    }
+    #love-letter-container {
+      display: none;
+      margin-top: 20px;
+    }
+    #love-letter-content {
+      padding: 20px;
+      background-color: #ff6666; /* Red */
+      color: white;
+      border-radius: 10px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <h1>Happy Valentines, Bianca!</h1>
+    <button id="proposal-button" onclick="showProposal()">CLICK HERE</button>
+    <p id="proposal-message" style="display: none;">Will you be my Valentine?</p>
+    <button id="yes-button" onclick="showResponse()" style="display: none;">Yes</button>
+    <button id="no-button" onclick="moveNoButton()" style="display: none;">No</button>
+    <p id="response-message" style="display: none;">Yiee, Miss na ko niya</p>
+    <button id="continue-button" onclick="showLoveButton()" style="display: none;">Click here to continue</button>
+    <button id="love-letter-button" onclick="revealLoveLetter()" style="display: none;">Show Love Letter</button>
+    <div id="love-letter-container">
+      <div id="love-letter-content">
+        <p>
+          Advance Happy Valentines po,<br><br>
+          Hi! can you be my valentine for tommorow po?, I want to invite you on a date. You don't need to worry about the bills po it's on me, sitting pretty raka and your presence is appreciated na po hehe.<br><br>
+          It's been 3 months na din pala since I started courting you, we've been into misunderstandings lately but I've been doing my best na ma ayos ang mga butang-butang. I want to improve my self to be better for you po, I want to fix this situation na naa ta karon, I will do my best na mo balik atong energy to each other just like before po.<br><br>
+          I am grateful for every moment na ka storya ka, na kauban ka. I really appreciate your presence, your time na ginahatag nimo sa akoa even tho busy ka.<br><br>
+          I just want to say na I am really happy na ni abot ka sa akong life, I never felt love like this. I really love you po, I am afraid na mawala paka sa akoa, I am will to do and sacrifice anything just to keep you. Maskin unsa pay mahitabo dli jud ko mo give up saimo, sa pag pursue sa imo. Iloveyousomuch po!<br><br>
+          Yours Truly,<br>
+          Your admirer
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function showProposal() {
+      document.getElementById("proposal-message").style.display = "block";
+      document.getElementById("proposal-button").style.display = "none";
+      document.getElementById("yes-button").style.display = "inline-block";
+      document.getElementById("no-button").style.display = "inline-block";
+    }
+
+    function showResponse() {
+      document.getElementById("response-message").style.display = "block";
+      document.getElementById("yes-button").style.display = "none"; // Hide the Yes button
+      document.getElementById("no-button").style.display = "none"; // Hide the No button
+      document.getElementById("continue-button").style.display = "inline-block"; // Show the continue button
+    }
+
+    function moveNoButton() {
+      var noButton = document.getElementById("no-button");
+      noButton.style.position = "absolute";
+      var leftPosition = Math.max(0, Math.min(window.innerWidth - 100, Math.random() * window.innerWidth - 100));
+      var topPosition = Math.max(0, Math.min(window.innerHeight - 50, Math.random() * window.innerHeight - 50));
+      noButton.style.left = leftPosition + "px";
+      noButton.style.top = topPosition + "px";
+    }
+
+    function showLoveButton() {
+      document.getElementById("response-message").style.display = "none"; // Hide the response message
+      document.getElementById("continue-button").style.display = "none"; // Hide the continue button
+      document.getElementById("love-letter-button").style.display = "inline-block"; // Show the love letter button
+    }
+
+    function revealLoveLetter() {
+      document.getElementById("love-letter-button").style.display = "none"; // Hide the love letter button
+      document.getElementById("love-letter-container").style.display = "block"; // Show the love letter container
+      document.getElementById("love-letter-content").style.maxHeight = "1300px"; // Adjust height as needed
+    }
+  </script>
+</body>
+</html>
